@@ -7,7 +7,7 @@ Selfrecon is not the necessary component of our data preparing stage. We have sh
 
 The reason why we use SelfRecon for monocular video inputs is that: 
 
-- The SMPL parameters obtained from monocular videos may not be accurate enough(we use video avatar and EasyMocap to do this work). To obtain a more stable human pose estimation, we choose SelfRecon. This is a general problem for human performer reconstruction from monocular videos. Neural Body has the same problem, so we use SelfRecon meshes instead of SMPL in their pipeline for a fair comparison, as mentioned in L254.
+- The SMPL parameters obtained from monocular videos may not be accurate enough(we use video avatar and EasyMocap to do this work). To obtain a more stable human pose estimation, we choose SelfRecon. This is a general problem for human performer reconstruction from monocular videos, and other methods like Neural Body have the same problem. Therefore, we use SelfRecon meshes instead of SMPL in their pipeline for a fair comparison, as mentioned in L254.
 
 - As mentioned in L275, we assume that some details like the hands and wrinkles of the clothes move consistent with the input human surface sequence. Therefore, the human surface sequence with non-rigid deformation obtained from SelfRecon improves the rendering quality in some details.
 
