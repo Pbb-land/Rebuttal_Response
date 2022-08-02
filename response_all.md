@@ -1,4 +1,4 @@
-We thank the reviewers for the constructive comments. Below are our responses to those common questions.
+We thank the reviewers for their constructive comments. Below are our responses to those common questions.
 
 ### **All-Q1. The use of SelfRecon in data preparation stage.**
 The use of SelfRecon makes reviewers feel that this paper is unacceptable. Reviewer gbPx believes that our faster radiance field optimization is built upon the cost of heavier mesh reconstruction(SelfRecon) and considers our work an “add-on” nerf module to SelfRecon. Reviewer k8XC feels that it is meaningless to train our representation after training SelfRecon. Actually, the role of SelfRecon is overestimated in our work, and we clarify below.
