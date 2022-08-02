@@ -25,7 +25,7 @@ We compared our representation with the vertex-based representation, the (x,y,z,
 Reviewer gbPx proposed a vertex-based representation: Storing 1D discrete feature representations for each vertex instead of a grid-based 4D hashtable. So we have a discussion here. This representation can be understood as our method without hash encoding.
 Moreover, the experiments show that the vertex-based representation takes at least ten times longer to converge and generate similar results. The average PSNR of our method on 6 test views of our custom data is 25.91, comparable to the vertex-based representation(25.48). For more details, please see R1-Q3.
 
-- **Surface-relative representation v.s.$(x,y,z,t)$ representation.** 
+- **Surface-relative representation v.s. $(x,y,z,t)$ representation.** 
 Reviewer k8XC considers that the $(x,y,z,t)$ representation can also adopt the multi-resolution hash encoding to monocular human reconstruction. So we implemented this idea and found that this $(x,y,z,t)$ representation can not generate reasonable novel view synthesis results. Please see R2-Q4 for more details.
 - **Ablation study on the number of the k-nearest points.**
  The experiment results show that when k>3, this factor has little effect on the final result. When k=1, blur occurs since features in the 3D space are discrete. Please see R3-Q1 for more details.
