@@ -2,7 +2,7 @@ We thank the reviewer for the detailed comments and constructive suggestions. Be
 ### **R1-Q1. The use of SelfRecon in data preparation stage.**
 As stated in L254, we used SelfRecon meshes instead of SMPL in NeuralBody for a fair comparison. Thus this comparison is apple-to-apple. Moreover, we outperform NeuralBody when both use Selfrecon meshes. We will add the data preparation time in the revised version.
 As reported in All-Q1, we have done an additional experiment on the ZjuMocap dataset to evaluate our method without SelfRecon meshes. The results show that we outperform NeuralBody and AnimatableNeRF when using SMPL meshes. This performance gain is mainly caused by other modules of our method:
-- Surface relative representation for aggregating inter-frame information
+- Surface-relative representation for aggregating inter-frame information
 - Multi-resolution hash encoding for speed-up training
 - Removing the direction $d$ from NeRF's input in monocular cases to eliminate the gap of inputs between training and testing
 ### **R1-Q2. Comparison to SelRecon(Volumetric rendering v.s. Mesh-based rendering).**
@@ -13,7 +13,7 @@ Mesh-based and volume rendering have their own advantages: Mesh-based rendering 
 For instance, in our experiments, some mesh sequences obtained from SelfRecon have artifacts that can not be ignored(e.g., a big hole on the human head). However, we can still generate reasonable results via volume rendering. We will add this comparison in the revised version.
 ### **R1-Q3. Vertex-based representation v.s. Our model.**
 
-Though we use 4D representation, the total number of features that we want to obtain through the hash encoder is much less than $N_{max}^4$ , where $N_{max}$ is the finest resolution of multi-resolution hash encoding. This is because the first three dimensions of our input to the hash encoder are only the coordinates of the vertices on the template mesh's surface $S$. 
+Though we use 4D representation, the total number of features that we want to obtain through hash encoder is much less than $N_{max}^4$ , where $N_{max}$ is the finest resolution of multi-resolution hash encoding. This is because the first three dimensions of our input to hash encoder are only the coordinates of the vertices on the template mesh's surface $S$. 
 
 Actually, if we regard $S$ as a 2D surface and distance $d$ as an additional dimension, our surface-relative representation can be explained as an irregular 3D voxel grid. And the number of features in this 3D grid is $N_v*N_{max}$ , far less than $N_{max}^4$ , where $N_v$ is the number of vertices on $S$ . Moreover, the 1D discrete features in the vertex-based representation are exactly the features in this 3D grid. Thus, this vertex-based representation can be understood as our method without hash encoding. It can be interpreted that when fixing the first three dimensions $(x,y,z)$ as a coordinate of a vertex $v$ on $S$ of the input, the features obtained from hash encoder by moving the fourth dimension d are exactly the 1D discrete features anchored to $v$ in the vertex-based representation. Generally speaking, the only difference between these two representations is that the vertex-based representation directly saves the features in the irregular 3D voxel grid, while our method uses the hash encoder to get these features and only saves the hash tables.
 
