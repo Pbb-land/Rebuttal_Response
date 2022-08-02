@@ -6,12 +6,12 @@ As reported in All-Q1, we have done an additional experiment on the ZjuMocap dat
 - Multi-resolution hash encoding for speed-up training
 - Removing the direction $d$ from NeRF's input in monocular cases to eliminate the gap of inputs between training and testing
 ### **R1-Q2. Comparison to SelRecon(Volumetric rendering v.s. Mesh-based rendering).**
-As described in All-Q1, SelfRecon is not the necessary component of our data preparing stage. Though this approach relies on consistent human surface sequence, it is not an ''add-on'' nerf module of SelfRecon.
+As described in All-Q1, SelfRecon is not the core component of our data preparing stage. Though this approach builds on consistent human surface sequence, it is not an ''add-on'' nerf module of SelfRecon.
 
-We think mesh-based and volume rendering have their own advantages: Mesh-bases rendering is simple and fast as a kind of forward rendering. Moreover, the rendering results highly depend on the accuracy of reconstructed geometry, texture, lighting, material, etc. While NeRF-like volume rendering method is essentially a fitting program for the input images, it can generate high-fidelity novel view synthesis results without restructuring explicit 3D representation. Therefore, NeRF-like volume rendering relies less on the accuracy of the reconstructed geometry of the target.
+Mesh-based and volume rendering have their own advantages: Mesh-based rendering is simple and fast as a kind of forward rendering. Moreover, the rendering results highly depend on the accuracy of reconstructed geometry, texture, lighting, material, etc. While NeRF-like volume rendering method is essentially a fitting program for input images, it can generate high-fidelity novel view synthesis results without restructuring explicit 3D representation. Therefore, NeRF-like volume rendering relies less on the accuracy of the reconstructed geometry.
 
-For instance, in our experiments, some mesh sequences obtained from SelfRecon have artifacts that can not be ignored(e.g., a big hole on the top of the human head). However, we can still generate reasonable results via volume rendering. We will add this comparison in the revised version.
-### **R1-Q3. Discussion and ablation study of vertex-based representation v.s. Our model.**
+For instance, in our experiments, some mesh sequences obtained from SelfRecon have artifacts that can not be ignored(e.g., a big hole on the human head). However, we can still generate reasonable results via volume rendering. We will add this comparison in the revised version.
+### **R1-Q3. Vertex-based representation v.s. Our model.**
 
 Though we use 4D representation, the total number of features that we want to obtain through the hash encoder is much less than $N_{max}^4$ , where $N_{max}$ is the finest resolution of multi-resolution hash encoding. This is because the first three dimensions of our input to the hash encoder are only the coordinates of the vertices on the template mesh's surface $S$. 
 
