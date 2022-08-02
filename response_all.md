@@ -11,9 +11,9 @@ The reason why we use SelfRecon for monocular video inputs is that:
 
 - As mentioned in L275, we assume that some details like the hands and wrinkles of the clothes move consistent with the input human surface sequence. Therefore, the human surface sequence with non-rigid deformation obtained from SelfRecon improves the rendering quality in some details.
 
-Therefore, what we need is a rough geometry surface sequence that acurately tracks the person in the monocular videos. Many other methods can achieve the same effect with much less computation time(e.g., PIFu-based methods + non-rigid registration). As stated in L280, we believe that this problem will be solved as the accuracy and speed of human shape reconstruction methods have already been greatly improved.
+In summary, what we need is a rough geometry surface sequence that acurately tracks the person in the monocular videos. Many other methods can achieve the same effect with much less computation time(e.g., PIFu-based methods + non-rigid registration). As stated in L280, we believe that this problem can be solved as the accuracy and speed of human shape reconstruction methods have already been greatly improved.
 
-We have done an additional experiment with monocular video inputs to evaluate our method with more accurate SMPL meshes. We use multi-view inputs in EasyMocap to obtain more accurate SMPL parameters and just use one view to train the model. The average PSNR of our method with accurate SMPL meshes on the ZJUMocap datasets is 24.63, comparable to AnimatableNeRF(23.48) and our method with SelfRecon meshes(24.85). This result demonstrates that if the SMPL parameters are accurate enough, our method can also achieve high-quality results without SelfRecon meshes in most cases.
+We have done an additional experiment with monocular video inputs to evaluate our method with more accurate SMPL meshes. We use multi-view inputs in EasyMocap to obtain more accurate SMPL parameters and just use one view to train the model. The average PSNR of our method with more accurate SMPL meshes on the ZJUMocap datasets is 24.63, comparable to AnimatableNeRF(23.48) and our method with SelfRecon meshes(24.85). This result demonstrates that if the SMPL parameters are accurate enough, our method can also achieve high-quality results without SelfRecon meshes in most cases.
 
 ### **All-Q2. Large memory consumption of our model.**
 Reviewer gbPx and k8XC concern that our model has a large memory consumption as we adopt 4D voxel fields.
@@ -24,9 +24,9 @@ Just like NeRF using 5D representation, we use the 4D representation without sav
 We compared our representation with the vertex-based representation, the $(x,y,z,t)$ representation, and evaluated the effect of the number of nearest neighbors on rendering quality.
 - **Our model v.s. Vertex-based representation.** 
 Reviewer gbPx proposed a vertex-based representation: Storing 1D discrete feature representations for each vertex instead of a grid-based 4D hashtable. This representation can be understood as our method without hash encoding.
-Moreover, the experiments show that the vertex-based representation takes at least ten times longer to converge while generating similar results. The average PSNR of our method on 6 test views of our custom data is 25.91, comparable to the vertex-based representation(25.48). For more details, please see R1-Q3.
+Moreover, the experiments show that the vertex-based representation takes at least ten times longer to converge while generating similar results. The average PSNR of our method on 6 test views of our custom data is 25.91, comparable to the vertex-based representation(25.48). For more details, please refer R1-Q3.
 
 - **Surface-relative representation v.s. $(x,y,z,t)$ representation.** 
-Reviewer k8XC considers that the $(x,y,z,t)$ representation can also adopt the multi-resolution hash encoding to monocular human reconstruction. So we implemented this idea and found that this $(x,y,z,t)$ representation can not generate reasonable novel view synthesis results. Please see R2-Q4 for more details.
+Reviewer k8XC considers that the $(x,y,z,t)$ representation can also adopt the multi-resolution hash encoding to monocular human reconstruction. We implemented this idea and found that this $(x,y,z,t)$ representation can not generate reasonable novel view synthesis results. Please refer R2-Q4 for more details.
 - **Ablation study on the number of the k-nearest points.**
- The experiment results show that when k>3, this factor has little effect on the final result. When k=1, blur occurs since features in the 3D space are discrete. Please see R3-Q1 for more details.
+ The experiment results show that when k>3, this factor has little effect on the final result. When k=1, blur occurs since features in the 3D space are discrete. Please refer R3-Q1 for more details.
