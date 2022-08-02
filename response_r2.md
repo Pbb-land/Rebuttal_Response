@@ -1,5 +1,5 @@
 We thank the reviewer for the detailed comments and constructive suggestions. Below are our responses to the questions.
-### **R1-Q1. Large memory consumption of our model.** 
+### **R2-Q1. Large memory consumption of our model.** 
 We adopt the 4D representation without saving the 4D voxel grid. Please refer the answer in All-Q2 for more details.
 ### **R2-Q2. The use of SelfRecon in data preparation stage.**
 Our approach can still outperforms NeuralBody and AnimatableNeRF with SMPL meshes instead of SelfRecon meshes. Please refer the answer in All-Q1 for details.
