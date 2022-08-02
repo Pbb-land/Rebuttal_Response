@@ -21,7 +21,7 @@ Reviewer gbPx and k8XC concern that our model has a large memory consumption as 
 Just like NeRF using 5D representation, we use the 4D representation without saving the 4D voxel grid. Therefore, the final model only contains the multi-resolution hash tables, per-frame's appearance code, and networks' parameters. When a single hash table has 2^19 features with dimensionality 2, our model is about 180MB, comparable to AnimatableNeRF(about 20MB) and NeuralBody (about 50MB).
 
 ### **All-Q3. More Ablation studies about our surface-relative representation.**
-We compared our representation with the vertex-based representation, the (x,y,z,t) representation, and evaluated the effect of the number of nearest neighbors on rendering quality.
+We compared our representation with the vertex-based representation, the $(x,y,z,t)$ representation, and evaluated the effect of the number of nearest neighbors on rendering quality.
 - **Our model v.s. Vertex-based representation.** 
 Reviewer gbPx proposed a vertex-based representation: Storing 1D discrete feature representations for each vertex instead of a grid-based 4D hashtable. So we have a discussion here. This representation can be understood as our method without hash encoding.
 Moreover, the experiments show that the vertex-based representation takes at least ten times longer to converge and generate similar results. The average PSNR of our method on 6 test views of our custom data is 25.91, comparable to the vertex-based representation(25.48). For more details, please see R1-Q3.
