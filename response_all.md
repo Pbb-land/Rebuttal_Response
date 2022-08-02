@@ -18,7 +18,7 @@ We have done an additional experiment with monocular video inputs to evaluate ou
 ### **All-Q2. Large memory consumption of our model.**
 Reviewer gbPx and k8XC concern that our model has a large memory consumption as we adopt 4D voxel fields.
 
-Just like NeRF using 5D representation, we use the 4D representation without saving the 4D voxel grid. Therefore, the final model only contains the multi-resolution hash tables, per-frame's appearance code, and networks' parameters. When a single hash table has 2^19 features with dimensionality 2, our model is about 180MB, comparable to INGP(about 90 MB for a single scene).
+Just like NeRF using 5D representation, we use the 4D representation without saving the 4D voxel grid. Therefore, the final model only contains the multi-resolution hash tables, per-frame's appearance code, and networks' parameters. When a single hash table has 2^19 features with dimensionality 2, our model is about 180MB, roughly equal to torch-ngp for a single scene.
 
 ### **All-Q3. More Ablation studies about our surface-relative representation.**
 We compared our representation with the vertex-based representation, the $(x,y,z,t)$ representation, and evaluated the effect of the number of nearest neighbors on rendering quality.
