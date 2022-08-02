@@ -1,8 +1,8 @@
 We thank the reviewer for the detailed comments and constructive suggestions. Below are our responses to the questions.
 ### **R2-Q1. Large memory consumption of our model.** 
-We adopt the 4D representation without saving the 4D voxel grid. Please refer the answer in All-Q2 for more details.
+We adopt the 4D representation without saving the 4D voxel grid. Please refer to the answer in All-Q2 for more details.
 ### **R2-Q2. The use of SelfRecon in data preparation stage.**
-Our approach can still outperforms NeuralBody and AnimatableNeRF with SMPL meshes instead of SelfRecon meshes. Please refer the answer in All-Q1 for details.
+Our approach can still outperform NeuralBody and AnimatableNeRF with SMPL meshes instead of SelfRecon meshes. Please refer to the answer in All-Q1 for details.
 ### **R2-Q3. The rendered images are mostly blurry.**
 It is a challenging task to reconstruct human NeRF representation from only monocular inputs, and our results outperform state-of-art works(NeuralBody and AnimatableNeRF). As stated in L295, we assume some details move consistent with the input human surface sequence. Therefore, blurry occurs in these areas. We believe this might be alleviated by adding a per-frame offset in future work.
 ### **R2-Q4. $(x,y,z,t)$ representation v.s. Our model.**
