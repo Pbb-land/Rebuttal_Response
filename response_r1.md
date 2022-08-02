@@ -8,7 +8,7 @@ As reported in All-Q1, we have done an additional experiment on the ZjuMocap dat
 
 
 
-### **R1-Q2. Comparison to SelRecon(volumetric rendering v.s. Mesh-based rendering).**
+### **R1-Q2. Comparison to SelRecon(Volumetric rendering v.s. Mesh-based rendering).**
 As described in All-Q1, SelfRecon is not the necessary component of our data preparing stage. Though this approach relies on consistent human surface sequence, it is not an ''add-on'' nerf module of SelfRecon.
 We think mesh-based and volume rendering have their own advantages: Mesh-bases rendering is simple and fast as a kind of forward rendering. Moreover, the rendering results highly depend on the accuracy of reconstructed geometry, texture, lighting, material, etc. While NeRF-like volume rendering method is essentially a fitting program for the input images, it can generate high-fidelity novel view synthesis results without restructuring explicit 3D representation. Therefore, NeRF-like volume rendering relies less on the accuracy of the reconstructed geometry of the target.
 For instance, in our experiments, some mesh sequences obtained from SelfRecon have artifacts that can not be ignored(e.g., a big hole on the top of the human head). However, we can still generate reasonable results via volume rendering. We will add this comparison in the revised version.
